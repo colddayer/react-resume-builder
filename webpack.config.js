@@ -9,7 +9,7 @@ module.exports = {
   mode: 'development',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js',
+    filename: '[name].js'
   },
   resolve: {
     fallback: {
@@ -19,21 +19,21 @@ module.exports = {
       zlib: require.resolve('browserify-zlib'),
       assert: require.resolve('assert/'),
       path: require.resolve('path-browserify'),
-      "url": require.resolve("url/"),
-      fs: false,
+      url: require.resolve('url/'),
+      fs: false
     },
-    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx']
   },
   optimization: {
     splitChunks: {
-      chunks: 'all',
-    },
+      chunks: 'all'
+    }
   },
   module: {
     rules: [
       {
-        test: /\.(png|jpg|jpeg|gif|webp)$/,
-        type: 'asset',
+        test: /\.(png|jpg|jpeg|gif|webp|ttf)$/,
+        type: 'asset'
       },
       {
         test: /\.tsx?/,
@@ -42,26 +42,28 @@ module.exports = {
             loader: 'babel-loader',
             options: {
               presets: ['@babel/preset-react'],
-            },
+              plugins: [require.resolve('react-refresh/babel')]
+            }
           },
           {
-            loader: 'ts-loader',
-          },
-        ],
-      },
-    ],
+            loader: 'ts-loader'
+          }
+        ]
+      }
+    ]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: './src/index.html'
     }),
     new CleanWebpackPlugin(),
     new ReactRefreshPlugin(),
     new webpack.ProvidePlugin({
-      process: 'process',
+      process: 'process'
     }),
+    new webpack.HotModuleReplacementPlugin(),
     new webpack.ProvidePlugin({
-      Buffer: ['buffer', 'Buffer'],
+      Buffer: ['buffer', 'Buffer']
     }),
     new webpack.DefinePlugin({
       'process.env': JSON.stringify(process.env)
@@ -69,7 +71,7 @@ module.exports = {
   ],
   devServer: {
     static: {
-      directory: path.join(__dirname, 'dist'),
+      directory: path.join(__dirname, 'dist')
     },
     historyApiFallback: true,
     compress: true,
@@ -78,8 +80,8 @@ module.exports = {
     hot: true,
     proxy: {
       '/api': {
-        target: 'http://localhost:3000',
-      },
-    },
-  },
+        target: 'http://localhost:3000'
+      }
+    }
+  }
 };
