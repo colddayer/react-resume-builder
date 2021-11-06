@@ -4,6 +4,6 @@ declare module '*.png' {
 }
 
 declare module '*.ttf' {
-  const img: any;
-  export default img;
+  const ttf: any;
+  export default ttf;
 }
