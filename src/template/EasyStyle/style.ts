@@ -13,5 +13,8 @@ export const styles: ReactPDf.Styles = StyleSheet.create({
   },
   mb10: {
     marginBottom: 10
+  },
+  something: {
+    fontSize: 14
   }
 });

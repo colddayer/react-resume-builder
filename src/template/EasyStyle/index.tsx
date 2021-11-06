@@ -52,7 +52,7 @@ const Easy = () => {
         </Section>
         <Section title="项目经历" style={styles.titleTop}>
           <Experience mainText="XXXXX项目" time="xxxx/xx/xx - xxxx/xx/xx">
-            <Text>Something you did</Text>
+            <Text style={styles.something}>Something you did</Text>
           </Experience>
         </Section>
       </View>
