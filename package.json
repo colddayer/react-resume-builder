@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "start": "webpack server",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "build": "webpack"
   },
   "dependencies": {
     "@react-pdf/renderer": "^2.0.14",
